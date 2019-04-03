@@ -218,7 +218,38 @@ public class UserDao {
 
 	}
 
+public int deleteUserInfo(String id) {
+	Connection conn = null;
+	int rs = 0;
+	try {
+		// データベースへ接続
+		conn = DBManager.getConnection();
+
+		// TODO
+
+		String sql = "delete from user where id = ?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setString(1, id);
+
+		rs = pStmt.executeUpdate();
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		// データベース切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	return rs;
 
 
 
+
+}
 }

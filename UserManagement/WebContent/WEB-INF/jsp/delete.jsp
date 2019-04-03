@@ -17,9 +17,9 @@
 
 <div class="header">
 		<div class="logout">
-			<a href ="">ログアウト</a>
+			<a href ="http://localhost:8080/UserManagement/loginServlet">ログアウト</a>
 		</div>
-		<div class="username">ユーザ名
+		<div class="username">${userInfo.name}さん
 		</div>
 
 	</div>
@@ -38,12 +38,15 @@
 
 
 				<div class="button-wrapper">
-						<a class="btn btn-light" href="#" role="button">Link</a>
+						<a class="btn btn-light" href="http://localhost:8080/UserManagement/UserListServlet" role="button">キャンセル</a>
 				</div>
 
+			<form class="form-delete" action="DeleteServlet" method="post">
+						<input type="hidden" name="id" value="${user.id}">
 				<div class="button-wrapper">
 						<input type="submit"class="btn btn-primary" value="OK" />
 				</div>
+			</form>
 		</div>
 
 
@@ -52,7 +55,7 @@
 
 		<div class="container-bottom">
 
-			<a href="list.html">戻る</a>
+			<a href="http://localhost:8080/UserManagement/UserListServlet">戻る</a>
 		</div>
 
 	</div>

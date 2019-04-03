@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+import model.User;
+
 /**
  * Servlet implementation class DeleteServlet
  */
@@ -29,16 +32,39 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//TODO
+		String id = request.getParameter("id");
+
+		UserDao userDao = new UserDao();
+		User user = userDao.findUserInfo(id);
+
+		request.setAttribute("user", user);
+
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/delete.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	/**
+	 * @param
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// TODO
+		request.setCharacterEncoding("UTF-8");
+
+		UserDao userDao = new UserDao();
+		String id = request.getParameter("id");
+
+
+		int rs = userDao.deleteUserInfo(id);
+
+		if(rs == 1) {
+
+			response.sendRedirect("UserListServlet");
+
+		}
+
 	}
 
 }
