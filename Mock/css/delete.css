@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.header{
+	background-color:gray;
+	height:30px
+}
+.logout{
+	float:right;
+}
+
+.username{
+	float:right;
+	margin-right:200px;
+}
+.container-middle{
+	text-align:left;
+	padding-left:10%;
+}
+.button-wrapper{
+	float:left;
+	margin:50px 200px;
+}
+.container{
+	text-align:center;
+}
+.container-top{
+	padding:10px 30px;
+	margin-bottom:30px;
+}
+.container-bottom{
+	clear:both;
+	text-align:left;
+}

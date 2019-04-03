@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.header{
+	background-color:gray;
+	height:30px
+}
+.logout{
+	float:right;
+}
+
+.username{
+	float:right;
+	margin-right:200px;
+}
+
+.container{
+	text-align:center;
+}
+
+.container-bottom {
+	text-align:left;
+}
+.row{
+	padding:30px 20px;
+}
