@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -34,6 +35,13 @@ public class UserListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userInfo") == null) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}
+
+
 		UserDao userDao = new UserDao();
 		List<User>userList = userDao.findAll();
 
@@ -52,6 +60,15 @@ public class UserListServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String startDate = request.getParameter("startDate");
 		String endDate = request.getParameter("endDate");
+
+		UserDao userDao = new UserDao();
+		List<User>userList = userDao.searchUserInfo(loginId, name, startDate, endDate);
+
+		request.setAttribute("userList", userList);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/list.jsp");
+		dispatcher.forward(request,response);
+
 
 	}
 

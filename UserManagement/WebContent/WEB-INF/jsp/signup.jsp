@@ -22,7 +22,7 @@
 
 	<div class="header">
 		<div class="logout">
-			<a href="">ログアウト</a>
+			<a href="LogoutServlet">ログアウト</a>
 		</div>
 		<div class="username">ユーザ名</div>
 
@@ -35,6 +35,12 @@
 				<strong>ユーザ新規登録</strong>
 			</h1>
 		</div>
+
+		<p class="err">
+			<c:if test="${errMsg != null}">
+		${errMsg}
+		</c:if>
+		<p>
 
 		<form class="form-signup" action="SignupServlet" method="post">
 			<div class="container-middle">
@@ -58,7 +64,7 @@
 					<label for="inputPassword" class="col-sm-2 col-form-label">パスワード(確認)</label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control" id="inputPassword"
-							name="password" placeholder="Password">
+							name="password2" placeholder="Password">
 					</div>
 				</div>
 
@@ -87,13 +93,7 @@
 		</form>
 	</div>
 
-	<p>
-		<c:if test="${errMsg != null}">
-		${errMsg}
-		</c:if>
-	<p>
 
-	<a href="http://localhost:8080/UserManagement/UserListServlet">戻る</a>
-
+		<a href="http://localhost:8080/UserManagement/UserListServlet">戻る</a>
 </body>
 </html>

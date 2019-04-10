@@ -64,7 +64,12 @@ public class User implements Serializable {
 	}
 
 	public String getBirthDateStr() {
-		String str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
+		String str="";
+		try {
+		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
+		} catch (Exception e) {
+			return "";
+		}
 		return str;
 	}
 
@@ -79,10 +84,11 @@ public class User implements Serializable {
 		Date formatDate = null;
 		try {
 			formatDate = sdf.parse(birthDate);
+			this.birthDate = formatDate;
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		this.birthDate = formatDate;
+
 	}
 
 	public String getPassword() {

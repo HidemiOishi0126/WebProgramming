@@ -21,3 +21,6 @@
 a{
 	float:left;
 }
+.errMsg{
+	color:red;
+}

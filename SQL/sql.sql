@@ -8,6 +8,7 @@ create_date datetime not null,
 update_date datetime not null);
 
 insert 
+
 into user ( 
   login_id
   , name

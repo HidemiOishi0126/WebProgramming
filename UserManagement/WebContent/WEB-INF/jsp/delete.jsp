@@ -17,7 +17,7 @@
 
 <div class="header">
 		<div class="logout">
-			<a href ="http://localhost:8080/UserManagement/loginServlet">ログアウト</a>
+			<a href ="LogoutServlet">ログアウト</a>
 		</div>
 		<div class="username">${userInfo.name}さん
 		</div>

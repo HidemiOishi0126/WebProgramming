@@ -19,7 +19,7 @@
 
 	<div class="header">
 		<div class="logout">
-			<a href="http://localhost:8080/UserManagement/loginServlet">ログアウト</a>
+			<a href="LogoutServlet">ログアウト</a>
 		</div>
 		<div class="username">${userInfo.name}さん
 		</div>
@@ -100,12 +100,13 @@
 							<a href="http://localhost:8080/UserManagement/UserDetailServlet?id=${user.id}">
 								<button type="button" class="btn btn-primary">詳細</button>
 							</a>
-							<a href="http://localhost:8080/UserManagement/UpdateServlet?id=${user.id}">
+							<c:if test="${userInfo.loginId == user.loginId || 'admin' == userInfo.loginId}"><a href="http://localhost:8080/UserManagement/UpdateServlet?id=${user.id}">
 								<button type="button" class="btn btn-success">更新</button>
-							</a>
+							</a></c:if>
+							<c:if test="${'admin' == userInfo.loginId}">
 							<a href="http://localhost:8080/UserManagement/DeleteServlet?id=${user.id}">
 								<button type="button" class="btn btn-danger">削除</button>
-							</a>
+							</a></c:if>
 						</td>
 					</tr>
 				</c:forEach>

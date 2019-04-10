@@ -18,7 +18,7 @@
 
 	<div class="header">
 		<div class="logout">
-			<a href="">ログアウト</a>
+			<a href="LogoutServlet">ログアウト</a>
 		</div>
 		<div class="username">${userInfo.name}さん</div>
 	</div>
@@ -31,6 +31,12 @@
 				<strong>ユーザ情報更新</strong>
 			</h1>
 		</div>
+
+
+					<c:if test="${errMsg != null}">
+		<p class="errMsg">${errMsg}</p>
+		</c:if>
+
 
 		<div class="container-middle">
 			<div class="row">
@@ -76,11 +82,7 @@
 							value="${user.birthDateStr}">
 					</div>
 				</div>
-				<p>
-					<c:if test="${errMsg != null}">
-		${errMsg}
-		</c:if>
-				</p>
+
 
 				<div class="container-bottom">
 					<div class="button-wrapper">

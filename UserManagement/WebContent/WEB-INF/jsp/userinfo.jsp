@@ -18,7 +18,7 @@
 
 	<div class="header">
 		<div class="logout">
-			<a href ="">ログアウト</a>
+			<a href ="LogoutServlet">ログアウト</a>
 		</div>
 		<div class="username">ユーザ名
 		</div>

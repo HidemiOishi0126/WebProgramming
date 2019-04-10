@@ -26,7 +26,7 @@
 		</p>
 
 
-		<form class="form-signin" action="loginServlet" method="post">
+		<form class="form-signin" action="LoginServlet" method="post">
 			<div class="form-group row">
 				<label for="inputId" class="col-sm-2 col-form-label">ログインID</label>
 				<div class="col-sm-10">
